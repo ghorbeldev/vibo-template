@@ -1,0 +1,62 @@
+@use '../components/variables' as *;
+@use '../components/mixins' as *;
+.header {
+	background-color: transparent;
+	z-index: 999;
+	width: 100vw;
+	position: fixed;
+	top: 0;
+	left: 0;
+	.container {
+		transition: all 0.5s;
+		height: $header-height;
+		@include flex(center, space-between);
+		@include mobile {
+			flex-direction: column;
+			padding-top: 1rem;
+			padding-bottom: 1rem;
+		}
+
+		.logo {
+			@include flex();
+			img {
+				transition: all 0.4s;
+				max-width: 100px;
+				width: 100px;
+				cursor: pointer;
+				&:hover {
+					filter: brightness(0.2);
+				}
+			}
+		}
+		.nav-menu {
+			&__item {
+				display: inline-block;
+				padding: 1rem;
+				@include mobile {
+					padding: 0.5rem;
+				}
+				a {
+					color: $white;
+					font-weight: 600;
+					font-size: 1.1rem;
+					transition: 0.4s;
+					&:hover {
+						color: darken($white, 80%);
+					}
+				}
+			}
+		}
+	}
+	&.shrink {
+		background-image: linear-gradient(
+			to right,
+			rgba(darken($primary, 10%), 0.8),
+			rgba($primary, 0.8),
+			rgba(darken($primary, 10%), 0.8)
+		);
+		.container {
+			height: 5rem;
+		}
+	}
+}

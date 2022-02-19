@@ -1,0 +1,83 @@
+@use './components/variables' as *;
+@use './components/mixins' as *;
+
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+*:not(i) {
+	font-family: 'Poppins', sans-serif;
+}
+
+html {
+	line-height: 1.15; /* 1 */
+	-webkit-text-size-adjust: 100%; /* 2 */
+	scroll-behavior: smooth;
+}
+body {
+	overflow-x: hidden;
+	max-width: 100vw;
+}
+/* Style The Page Scroll Bar */
+::-webkit-scrollbar {
+	width: 0.65rem;
+}
+::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #888;
+	border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+	background: darken(#888, 10%);
+}
+a {
+	text-decoration: none;
+	cursor: pointer;
+}
+ul {
+	list-style-type: none;
+}
+button,
+input {
+	outline: 0;
+	border: none;
+}
+
+// Container class
+.container {
+	width: 100%;
+	padding-right: 0.9rem;
+	padding-left: 0.9rem;
+	margin-right: auto;
+	margin-left: auto;
+	@media (min-width: 576px) {
+		& {
+			max-width: 540px;
+		}
+	}
+	@media (min-width: 768px) {
+		& {
+			max-width: 720px;
+		}
+	}
+	@media (min-width: 992px) {
+		& {
+			max-width: 960px;
+		}
+	}
+	@media (min-width: 1200px) {
+		& {
+			max-width: 1140px;
+		}
+	}
+}
+::selection {
+	background: $text-color;
+	color: $white;
+}

@@ -1,0 +1,27 @@
+@use './variables' as *;
+
+@mixin flex($alignItems: center, $justifyContent: center) {
+	display: flex;
+	align-items: $alignItems;
+	justify-content: $justifyContent;
+}
+@mixin mobile {
+	@media (max-width: $mobile) {
+		@content;
+	}
+}
+@mixin tablet {
+	@media (max-width: $tablet) {
+		@content;
+	}
+}
+@mixin laptop {
+	@media (max-width: $laptop) {
+		@content;
+	}
+}
+@mixin large {
+	@media (max-width: $large) {
+		@content;
+	}
+}
